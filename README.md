@@ -55,5 +55,5 @@ jekyll new . --force
 ```bash
 git add .
 git commit -m 'Initial GitHub pages site with Jekyll'
-git push -u origin
+git push --set-upstream origin gh-pages
 ```
