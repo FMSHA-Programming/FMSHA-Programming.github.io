@@ -1,6 +1,12 @@
 # FMSHA-Programming.github.io
 
-## How-to this site was created
+## How to run this site locally:
+
+```bash
+bundle exec jekyll serve --incremental
+```
+
+## How this site was created
 
 1. Init repository:
 

@@ -1,6 +1,9 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
-layout: home
+layout: default
+title: СУНЦ НГУ Информатика 2021
+date: 2021-08-09
 ---
+
+Привет! Сайт находится в разработке. Скоро здесь появится что-нибудь полезное.
+
+[Задания](problems)
