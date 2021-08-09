@@ -3,12 +3,11 @@
 
 title: СУНЦ НГУ Информатика 2021
 email: vit.vorobiev@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Материалы для учащихся классов 10-8 и 10-9
+description: Материалы для учащихся класса 10-9
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
-github_username: NSU-Programming
+github_username: FMSHA-Programming
 
 # Build settings
 # theme: jekyll-theme-cayman
