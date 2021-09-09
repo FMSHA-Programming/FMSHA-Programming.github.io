@@ -100,7 +100,7 @@ printf("%d %d", a, b);
 
 Набор символов преобразования для функции `printf`:
 
-![printf](printf.png))
+![printf](printf.png)
 
 ### Тонкая настройка вывода
 
