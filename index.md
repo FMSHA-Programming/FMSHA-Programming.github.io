@@ -24,3 +24,6 @@ date: 2021-08-09
 * [Основы систем счисления на habr.com](https://habr.com/ru/post/124395/)
 * Статья [Позиционная система счисления](https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%B7%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%B0%D1%8F_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D1%81%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F) Википедии
 
+## Библиотеки Си
+
+* [The GNU Multiple Precision Arithmetic Library](https://gmplib.org)
