@@ -6,6 +6,11 @@ int main() {
 
     printf("%s\n%s\n", s1, s2);
 
+    printf("%ld\n", sizeof(s1) / sizeof(char));
+    printf("%ld\n", sizeof(s2) / sizeof(char));
+
+    printf("%d\n", (int)'\0');
+
     printf("What is your name?\n");
     char s3[15];
     scanf("%s", s3);
