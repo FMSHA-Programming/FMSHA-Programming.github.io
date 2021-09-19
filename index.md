@@ -21,6 +21,10 @@ date: 2021-08-09
 
 ## Материалы online
 
+### Документация
+
+* Полная документация на сайте [cppreference.com](https://ru.cppreference.com/w/c)
+
 ### Системы счисления
 
 * [Основы систем счисления на habr.com](https://habr.com/ru/post/124395/)
