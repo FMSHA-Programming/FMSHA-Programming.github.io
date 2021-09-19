@@ -11,6 +11,7 @@ date: 2021-08-09
 * [2021-09-09](seminars/2021-09-09/synopsis.md)
 * [2021-09-14](seminars/2021-09-14/synopsis.md)
 * [2021-09-16](seminars/2021-09-16/synopsis.md)
+* [2021-09-21](seminars/2021-09-21/synopsis.md)
 
 ## Рекомендуемая литература
 
