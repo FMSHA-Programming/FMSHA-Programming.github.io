@@ -22,13 +22,17 @@ date: 2021-08-09
 * [2021-09-30](seminars/2021-09-30/synopsis.md)
 * [2021-10-05](seminars/2021-10-05/synopsis.md)
 * [2021-10-07](seminars/2021-10-07/synopsis.md)
+* [2021-10-12](seminars/2021-10-12/synopsis.md)
+* [2021-10-14](seminars/2021-10-14/synopsis.md)
 
 ## Рекомендуемая литература
 
 ### Язык Си
 
 * [*Язык программирования C*, Брайан Керниган, Деннис Ритчи](https://www.ozon.ru/product/yazyk-programmirovaniya-c-150133610/?gclid=Cj0KCQjw-NaJBhDsARIsAAja6dNAfrW8a8JG2ou2VjSoLr-mj-F1snU95v1XG56Pd4rPuig6JBoOnw4aAnU0EALw_wcB&sh=75HegSMH&utm_campaign=RF_Product_Shopping_Books_super&utm_medium=cpc&utm_source=google)
-* *Как программировать на С*, Пол Дейтел, Харви Дейтел
+* [*Как программировать на С*, Пол Дейтел, Харви Дейтел](https://www.ozon.ru/product/algoritmicheskie-tryuki-dlya-programmistov-23968713/?sh=tqvOX1J2)
+* [*Алгоритмические трюки для программистов*, Генри Уоррен мл.](https://www.ozon.ru/product/algoritmicheskie-tryuki-dlya-programmistov-23968713/?sh=MX45T21Q)
+
 
 ## Материалы online
 
