@@ -202,7 +202,7 @@ void xor_swap(int* a, int* b) {
 
 ```c
 a & a == a;
-a | a == 0;
+a | a == a;
 a ^ a == 0;
 
 a & ~a == 0;
