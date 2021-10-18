@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 void swap(int arr[], size_t i, size_t j) {
-    arr[i] ^= arr[j];
-    arr[j] ^= arr[i];
-    arr[i] ^= arr[j];
+    arr[i] = arr[i] ^ arr[j];
+    arr[j] = arr[j] ^ arr[i];
+    arr[i] = arr[i] ^ arr[j];
 }
 
 void reverce(int arr[], size_t lo, size_t hi) {
