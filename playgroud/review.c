@@ -1,32 +1,33 @@
 #include <stdio.h>
-#include <math.h>
 
-int is_or_not(char s[], size_t size, char ch){
-	for (size_t i=0; i < size - 1; i++){
-		if (s[i]==ch){
-			return 1;
-		}else{
-			return 0;
-		}
-		}
-	return 0;
+void print(unsigned int num){
+	int arr[32];
+	for (int i = 31; i >= 0; i--){
+		arr[i] = 1 & num;
+		num = num >> 1;}
+	for (int i = 0; i < 32; i++){
+		printf ("%d", arr[i]);}
 }
 
-int main(){
-	char ch;
-	int size;
-	printf("Please, enter the number of chars: ");
-	scanf("%d", &size);
-	printf("Please, enter the string: ");
-	char s[size];
-	scanf("%s", s);
-	printf("Please, enter the char: ");
-	scanf("%s", &ch);
-	int x=is_or_not(s, size, ch);
-	if (x==0){
-		printf("The char is not in the string");
-	}else{
-		printf("The char is in the string");
-		}
-	return 0;
+int uryu ( int n, int k ){
+    int c = n << (32 - k);
+    if ( (c >> 31) & 1 ){
+        return ((1 << 31) >> (31 - k)) ^ (c >> (32 - k));
+    }
+    return c >> (32 - k);
+}
+
+int main()
+{
+    int n, k;
+    scanf ("%d", &n);
+    scanf ("%d", &k);
+    printf ("%d", uryu (n, k));
+	putchar('\n');
+	print(n);
+	putchar('\n');
+	print(uryu (n, k));
+	putchar('\n');
+
+    return 0;
 }
