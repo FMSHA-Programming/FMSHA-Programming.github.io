@@ -1,33 +1,15 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-void print(unsigned int num){
-	int arr[32];
-	for (int i = 31; i >= 0; i--){
-		arr[i] = 1 & num;
-		num = num >> 1;}
-	for (int i = 0; i < 32; i++){
-		printf ("%d", arr[i]);}
-}
+int main() {
+	int* array = malloc(5 * sizeof(int));
+	for (int i = 0; i < 5; ++i) array[i] = i;
+	array = realloc(array, 10 * sizeof(int));
+	for (int i = 5; i < 10; ++i) array[i] = i;
+	for (int i = 0; i < 10; ++i) {
+	    printf("%d%c", array[i], i == 9 ? '\n' : ' ');
+	}
 
-int uryu ( int n, int k ){
-    int c = n << (32 - k);
-    if ( (c >> 31) & 1 ){
-        return ((1 << 31) >> (31 - k)) ^ (c >> (32 - k));
-    }
-    return c >> (32 - k);
-}
-
-int main()
-{
-    int n, k;
-    scanf ("%d", &n);
-    scanf ("%d", &k);
-    printf ("%d", uryu (n, k));
-	putchar('\n');
-	print(n);
-	putchar('\n');
-	print(uryu (n, k));
-	putchar('\n');
-
-    return 0;
+	printf("%d\n", 45 ^ 17);
+	return 0;
 }
