@@ -100,23 +100,90 @@ typedef struct {
 2. При достижении условия `size == capacity` выделяем новую область памяти, в *два раза большую* прежней, с помощью функции `realloc`. Все значения, записанные в стек, должны сохраниться;
 3. При достижении условия `capacity > 4 && 4 * size < capacity` выделяем новую область памяти, в *два раза меньшую* прежней, с помощью функции `realloc`. Все значения, записанные в стек, должны сохраниться;
 
-Реализуйте функции, поведение которых определяется перечисленными выше правилами:
+Функция `init_stack` выделяет память и возвращает указатель пустой стек:
 
 ```c
-// Создает и возвращает пустой стек
-Stack init_stack();
+#define INIT_SIZE 4
 
-// Удаляет элемент со стека st и возвращает его
-int pop_stack(Stack *st);
+Stack* init_stack() {
+    Stack* st = (Stack*)malloc(sizeof(Stack));
+    st->capacity = INIT_SIZE;
+    st->data = (int*)malloc(st->capacity * sizeof(int));
+    st->size = 0;
+    return st;
+}
+```
 
-// Возвращает верхний элемент стека, не удаляя его
-int top_stack(Stack *st);
+Функция `pop_stack` удаляет элемент со стека st и возвращает его
 
-// Добавляет элемент на стек
-void put_stack(Stack *st, int value);
+```c 
+int pop_stack(Stack* st) {
+    if (st->size == 0) {
+        puts("Pop from empty stack\n");
+        return 0;
+    }
+    if (st->size > 4 && 4 * st->size == st->capacity) {
+        st->capacity /= 2;
+        st->data = (int*)realloc(st->data, st->capacity * sizeof(int));
+    }
+    return st->data[--st->size];
+}
+```
+
+Функция `top_stack` возвращает верхний элемент стека, не удаляя его:
+
+```c
+int top_stack(Stack *st) {
+    return st->data[st->size];
+}
+```
+
+Функция `put_stack` добавляет элемент на стек
+
+```c
+void put_stack(Stack *st, int value) {
+    if (st->size == st->capacity) {
+        st->capacity *= 2;
+        st->data = (int*)realloc(st->data, st->capacity * sizeof(int));
+        if (st->data == NULL) {
+            puts("Can't allocate memory\n");
+            exit(1);
+        }
+    }
+    st->data[st->size++] = value;
+}
+```
+
+Функция `free_stack` освобождает память, выделенную для стека.
+
+```c
+void free_stack(Stack* st) {
+    free(st->data);
+    free(st);
+}
 ```
 
 ![](Lifo_stack.png)
+
+Пример использования нашей структуры данных:
+
+```c
+int main() {
+    Stack* st = init_stack();
+    for (int i = 0; i < 1000; ++i) {
+        put_stack(st, i);
+    }
+
+    for (int i = 0; i < 1000; ++i) {
+        int val = pop_stack(st);
+        printf("%d\n", val);
+    }
+
+    free_stack(st);
+
+    return 0;
+}
+```
 
 ## Связный список
 
