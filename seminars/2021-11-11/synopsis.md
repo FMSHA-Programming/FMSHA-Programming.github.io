@@ -35,6 +35,25 @@ date: 2021-11-11
 
 [Примеры выражений](bracket_examples.txt)
 
+Пример программы, которая считывает каждую строку файла:
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    FILE* fptr = fopen("data.txt", "r");
+    char* s = NULL;
+    size_t bufsize;
+    while (!feof(fptr)) {
+        ssize_t len = getline(&s, &bufsize, fptr);
+        printf("%s %lu %lu\n", s, bufsize, len);
+    }
+    free(s);
+    return 0;
+}
+```
+
 **Пример 2.** Стековая машина. Математические выражения можно записывать эквивалентно в [*обратной польской нотации*](https://ru.wikipedia.org/wiki/%D0%9E%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%B0%D1%8F_%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%B0%D1%8F_%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D1%8C#%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80_%D0%B2%D1%8B%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9). Операнды при такой записи расположены перед операторами. Примеры:
 
 |    Инфиксная нотация     | Обратная польская нотация |
