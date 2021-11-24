@@ -58,15 +58,18 @@ void list_push_back(LinkedList* l, int value) {
 }
 
 void list_print(LinkedList* l) {
+    if (l == NULL) return;
     listnode_print(l->head);
 }
 
-void list_pop_front(LinkedList* l) {
-    if (!l->size) return;
+int list_pop_front(LinkedList* l) {
+    if (l == NULL || !l->size) return 0;
     ListNode* current_head = l->head;
+    int value = current_head == NULL ? 0 : current_head->value;
     l->head = l->head->next;
     free(current_head);
     if (!--l->size) l->tail = NULL;
+    return value;
 }
 
 ListNode* list_find(LinkedList* l, int value) {

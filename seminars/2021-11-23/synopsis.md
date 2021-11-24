@@ -11,10 +11,11 @@ date: 2021-11-23
 Динамический массив (стек) позволяет эффективно добавлять и удалять последний элемент. Если задача требует большого количества вставок и удаления элементов в середине контейнера, то более эффективной структурой данных может оказаться *связный список*. Рассмотрим устройство *односвязного списка*. В этом контейнере каждое значение является стурктурой данных с двумя полями: значение и ссылка на следующий элемент. Определим такую структуру:
 
 ```c
-typedef struct {
+struct ListNode {
     int value;
-    struct ListNode* next;
-} ListNode;
+    struct ListNode *next;
+};
+typedef struct ListNode ListNode;
 ```
 
 Цепочка из таких структур и является связным списком:
@@ -57,40 +58,104 @@ List init_list() {
 Реализуем следующие функции:
 
 ```c
-// Вставка элемента, следующего за данным
-void insert_after(ListNode* node, int value);
+// Создание элемента списка
+ListNode* init_listnode(int value, ListNode* next) {
+    ListNode* newnode = malloc(sizeof(ListNode));
+    newnode->value = value;
+    newnode->next = next;
+    return newnode;
+}
+```
+
+```c
+// Вставка элемента после данного
+void listnode_insert_next(ListNode* node, int value) {
+    ListNode* current_next = node->next;
+    ListNode* newnode = init_listnode(value, current_next);
+    node->next = newnode;
+}
 ```
 
 ```c
 // Удаление элемента, следующего за данным
-void remove_after(ListNode* node);
+void listnode_remove_next(ListNode* node) {
+    if (node == NULL || node->next == NULL) return;
+    ListNode* current_next = node->next;
+    node->next = node->next->next;
+    free(current_next);
+}
+```
+
+```c
+// Вывод в консоль всех значений элементов, начинася с данного
+void listnode_print(ListNode* node) {
+    while (node != NULL) {
+        printf("%d%s", node->value, node->next == NULL ? "\n" : " -> ");
+        node = node->next;
+    }
+}
 ```
 
 ```c
 // Вставка элемента в начало списка
-void list_push_front(List* l, int value);
+void list_push_front(LinkedList* l, int value) {
+    ListNode* new_head = init_listnode(value, l->head);
+    l->head = new_head;
+    if (!l->size) l->tail = new_head;
+    ++l->size;
+}
 ```
 
 ```c
 // Вставка элемента в конец списка
-void list_push_back(List* l, int value);
+void list_push_back(List* l, int value) {
+    // Реализуйте эту функцию самостоятельно
+}
 ```
 
 ```c
 // Вывод всех значений списка в стандартный поток вывода
-void list_print(List* l);
+void list_print(LinkedList* l) {
+    if (l == NULL) return;
+    listnode_print(l->head);
+}
+```
+
+```c
+// Удаление первого элемента и возвращение его значения
+int list_pop_front(LinkedList* l) {
+    if (l == NULL || !l->size) return 0;
+    ListNode* current_head = l->head;
+    int value = current_head == NULL ? 0 : current_head->value;
+    l->head = l->head->next;
+    free(current_head);
+    if (!--l->size) l->tail = NULL;
+    return value;
+}
 ```
 
 ```c
 // Поиск первого элемента списка с данным значением.
 // Функция возвращает указатель на найденный элемент.
 // Функция возвращает NULL, если элемент не найден
-ListNode* list_find(List* l, int value);
+ListNode* list_find(LinkedList* l, int value) {
+    if (l == NULL) return NULL;
+    ListNode* node = l->head;
+    while (node != NULL) {
+        if (node->value == value) return node;
+        node = node->next;
+    }
+    return NULL;
+}
 ```
 
 ```c
 // Обмен местами двух элементов списка
-void list_swap(ListNode* node1, ListNode* node2);
+void list_swap(ListNode* node1, ListNode* node2) {
+    // Реализуйте эту функцию самостоятельно
+}
 ```
+
+Обратите внимание, что удаление последнего элемента в нашей текущей реализации односвязанном списка выполнить эффективно не удается.
 
 **Упражнение 1**. Найти первые `10000` чисел, составленные только из нулей и девяток, и вывести их в порядке позрастания.
