@@ -134,7 +134,7 @@ int pop_stack(Stack* st) {
 
 ```c
 int top_stack(Stack *st) {
-    return st->data[st->size];
+    return st->data[st->size - 1];
 }
 ```
 
