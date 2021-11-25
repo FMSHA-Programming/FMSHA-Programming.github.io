@@ -106,16 +106,18 @@ int dequeue(Queue* q) {
 }
 
 int main() {
-    // LinkedList l = list_init();
-    // for (int i = 1; i < 10; ++i) {
-    //     list_push_front(&l, i * i);
-    // }
-    // list_print(&l);
+    LinkedList l = list_init();
+    for (int i = 1; i < 5; ++i) {
+        list_push_front(&l, i * i);
+        list_push_back(&l, i * i);
+    }
+    list_print(&l);
 
-    // for (int i = 1; i < 3; ++i) {
-    //     list_pop_front(&l);
-    // }
-    // list_print(&l);
+    while (l.size) {
+        list_pop_front(&l);
+        list_print(&l);
+    }
+    list_print(&l);
 
     Queue q = queue_init();
     for (int i = 1; i < 10; ++i) enqueue(&q, i * i);
