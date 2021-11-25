@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 
 struct ListNode {
     int value;
@@ -9,7 +10,7 @@ struct ListNode {
 typedef struct ListNode ListNode;
 
 void listnode_remove_next(ListNode* node) {
-    if (node == NULL || node->next == NULL) return;
+    assert(node != NULL || node->next != NULL);
     ListNode* current_next = node->next;
     node->next = node->next->next;
     free(current_next);
@@ -47,6 +48,7 @@ LinkedList list_init() {
 }
 
 void list_push_front(LinkedList* l, int value) {
+    assert(l != NULL);
     ListNode* new_head = init_listnode(value, l->head);
     l->head = new_head;
     if (!l->size) l->tail = new_head;
@@ -54,16 +56,23 @@ void list_push_front(LinkedList* l, int value) {
 }
 
 void list_push_back(LinkedList* l, int value) {
-    // TODO
+    assert(l != NULL);
+    if (!l->size) {
+        l->tail = l->head = init_listnode(value, NULL);
+    } else {
+        listnode_insert_next(l->tail, value);
+        l->tail = l->tail->next;
+    }
+    ++l->size;
 }
 
 void list_print(LinkedList* l) {
-    if (l == NULL) return;
+    assert(l != NULL);
     listnode_print(l->head);
 }
 
 int list_pop_front(LinkedList* l) {
-    if (l == NULL || !l->size) return 0;
+    assert(l != NULL && l->size);
     ListNode* current_head = l->head;
     int value = current_head == NULL ? 0 : current_head->value;
     l->head = l->head->next;
@@ -73,7 +82,7 @@ int list_pop_front(LinkedList* l) {
 }
 
 ListNode* list_find(LinkedList* l, int value) {
-    if (l == NULL) return NULL;
+    assert(l != NULL);
     ListNode* node = l->head;
     while (node != NULL) {
         if (node->value == value) return node;
@@ -82,16 +91,36 @@ ListNode* list_find(LinkedList* l, int value) {
     return NULL;
 }
 
-int main() {
-    LinkedList l = list_init();
-    for (int i = 1; i < 10; ++i) {
-        list_push_front(&l, i * i);
-    }
-    list_print(&l);
+typedef LinkedList Queue;
 
-    for (int i = 1; i < 3; ++i) {
-        list_pop_front(&l);
-    }
-    list_print(&l);
+Queue queue_init() {
+    return list_init();
+}
+
+void enqueue(Queue* q, int value) {
+    list_push_back(q, value);
+}
+
+int dequeue(Queue* q) {
+    return list_pop_front(q);
+}
+
+int main() {
+    // LinkedList l = list_init();
+    // for (int i = 1; i < 10; ++i) {
+    //     list_push_front(&l, i * i);
+    // }
+    // list_print(&l);
+
+    // for (int i = 1; i < 3; ++i) {
+    //     list_pop_front(&l);
+    // }
+    // list_print(&l);
+
+    Queue q = queue_init();
+    for (int i = 1; i < 10; ++i) enqueue(&q, i * i);
+    for (int i = 1; i < 10; ++i) printf("%d ", dequeue(&q));
+    putchar('\n');
+
     return 0;
 }
