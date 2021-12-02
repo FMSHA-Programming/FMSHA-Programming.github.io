@@ -22,18 +22,18 @@ date: 2021-11-25
 Связный список - это готовая реализация очереди. Действительно. Вспомним структуры данных и функции, которые мы написали для реализации списка:
 
 ```c
-struct ListNode {
+struct List {
     int value;
-    struct ListNode *next;
+    struct List *next;
 };
-typedef struct ListNode ListNode;
+typedef struct List List;
 ```
 
 ```c
 typedef struct {
     size_t size;
-    ListNode* head;
-    ListNode* tail;
+    List* head;
+    List* tail;
 } LinkedList;
 ```
 
