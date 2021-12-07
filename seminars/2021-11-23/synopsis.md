@@ -98,7 +98,7 @@ void listnode_print(ListNode* node) {
 
 ```c
 // Вставка элемента в начало списка
-void list_push_front(LinkedList* l, int value) {
+void list_push_front(List* l, int value) {
     ListNode* new_head = init_listnode(value, l->head);
     l->head = new_head;
     if (!l->size) l->tail = new_head;
@@ -115,7 +115,7 @@ void list_push_back(List* l, int value) {
 
 ```c
 // Вывод всех значений списка в стандартный поток вывода
-void list_print(LinkedList* l) {
+void list_print(List* l) {
     if (l == NULL) return;
     listnode_print(l->head);
 }
@@ -123,7 +123,7 @@ void list_print(LinkedList* l) {
 
 ```c
 // Удаление первого элемента и возвращение его значения
-int list_pop_front(LinkedList* l) {
+int list_pop_front(List* l) {
     if (l == NULL || !l->size) return 0;
     ListNode* current_head = l->head;
     int value = current_head == NULL ? 0 : current_head->value;
@@ -138,7 +138,7 @@ int list_pop_front(LinkedList* l) {
 // Поиск первого элемента списка с данным значением.
 // Функция возвращает указатель на найденный элемент.
 // Функция возвращает NULL, если элемент не найден
-ListNode* list_find(LinkedList* l, int value) {
+ListNode* list_find(List* l, int value) {
     if (l == NULL) return NULL;
     ListNode* node = l->head;
     while (node != NULL) {
