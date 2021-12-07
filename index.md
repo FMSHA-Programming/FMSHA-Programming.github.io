@@ -57,3 +57,7 @@ date: 2021-08-09
 ## Библиотеки Си
 
 * [The GNU Multiple Precision Arithmetic Library](https://gmplib.org)
+
+## Анализ данных
+
+* [Курс Введение в Data Science имашинное обучение](https://stepik.org/course/4852/info) на Stepik
