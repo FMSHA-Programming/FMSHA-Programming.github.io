@@ -43,6 +43,10 @@ date: 2021-08-09
 * [2022-01-20](seminars/2022-01-20/synopsis.md). Электронные текстовые документы. Продвинутые аспекты.
 * [2022-01-25](seminars/2022-01-25/synopsis.md). Практика работы с LibreOffice Writer. Формулы.
 * [2022-01-27](seminars/2022-01-27/synopsis.md). Практика работы с LibreOffice Writer. Сложный текстовый документ.
+* [2022-02-01](seminars/2022-02-01/synopsis.md). LibreOffice Calc: Ввод и редактирование данных
+* [2022-02-03](seminars/2022-02-03/synopsis.md). LibreOffice Calc: Функции
+* [2022-02-08](seminars/2022-02-08/synopsis.md). LibreOffice Calc: Логические функции Calc
+* [2022-02-10](seminars/2022-02-10/synopsis.md). LibreOffice Calc: финал
 
 ## Рекомендуемая литература
 
